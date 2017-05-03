@@ -21,19 +21,18 @@ public class MazeBuilder {
     private int[] cells;                    // array of cell group IDs
     private Wall[] mazeWalls;               // the "list" of walls
     private int groups;                     // # of component groups
-    final private int m, n;                 // width and height of grid
+    final private int m, n;                 // width and height or grid
     final private double unitSize;          // unit size of each cell
     
     // Constructor takes dimensions of the grid
     public MazeBuilder(int x, int y) {
         m = x;      // cell width of maze
         n = y;      // cell height of maze
+        int gridsize = m * n;
         
         if(m > n) unitSize = 500.0 / m;     // Divide "canvas size" by either
         else unitSize = 500.0 / n;          // width of height, whichever is
                                             // greater
-        int gridsize = m * n;
-        
         cells = new int[gridsize];
         mazeWalls = new Wall[2 * gridsize - x - y];
         groups = gridsize;
